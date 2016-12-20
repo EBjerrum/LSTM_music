@@ -1,0 +1,6 @@
+timidity 0AuraLee.mid -Ow -o - | ffmpeg -i - -acodec libmp3lame -ab 64k 0AuraLee1.mp3
+
+
+timidity 2x128_temp0.8.mid -Ow -o - | ffmpeg -i - -filter_complex \
+"[0:a]showcqt,format=yuv420p[v]" \
+-map "[v]" -map 0:a output.mp4
